@@ -1,4 +1,4 @@
-import { Stack, IconButton } from "@mui/material";
+import { Stack, IconButton, Box } from "@mui/material";
 
 import { useState } from "react";
 import ResetScore from "./ResetScore";
@@ -19,7 +19,7 @@ function App() {
 
   const handleChoice = (choice) => {
     setPlayerChoice(choice);
-    console.log(choice);
+    console.log("Player choice: " + choice);
     verify();
   }
 
@@ -31,6 +31,10 @@ function App() {
   const computerWins = () => {
     let currentScore = (parseInt(localStorage.getItem("computerScore")) + 1);
     localStorage.setItem("computerScore", currentScore);
+  }
+
+  const draw = () => {
+    console.log("TODO draw");
   }
 
   const verify = () => {
@@ -46,7 +50,25 @@ function App() {
       playerWins();
     }
     else if (playerChoice === "scissors" && computerChoice === "scissors") {
-      //TODO
+      draw();
+    }
+    else if (playerChoice === "paper" && computerChoice === "rock") {
+      computerWins();
+    }
+    else if (playerChoice === "paper" && computerChoice === "paper") {
+      draw();
+    }
+    else if (playerChoice === "paper" && computerChoice === "scissors") {
+      computerWins();
+    }
+    else if (playerChoice === "rock" && computerChoice === "rock") {
+      draw();
+    }
+    else if (playerChoice === "rock" && computerChoice === "paper") {
+      computerWins();
+    }
+    else if (playerChoice === "rock" && computerChoice === "scissors") {
+      playerWins();
     }
 
 
