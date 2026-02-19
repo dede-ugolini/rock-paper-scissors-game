@@ -1,4 +1,4 @@
-import { Card, CardContent, CardHeader, Stack, Typography } from "@mui/material";
+import { Card, CardContent, CardMedia, Stack, Typography } from "@mui/material";
 
 export default function Header() {
 
@@ -13,21 +13,29 @@ export default function Header() {
         </Stack>
 
         <Stack direction={"row-reverse"} spacing={2} width={"70%"}>
-          <Card sx={{ Width: "30%", textAlign: "center" }}>
-            <CardHeader title="Computer Score">
-            </CardHeader>
+          {/* Computer Score */}
+          <Card sx={{ width: "30%", textAlign: "center" }}>
+            <CardMedia sx={{ paddingLeft: 2, paddingRight: 2, paddingTop: 2 }}>
+              <Typography variant="h5" fontWeight={"bold"} sx={{ color: "hsl(229, 64%, 46%)", letterSpacing: 2 }}  >
+                COMPUTER
+              </Typography>
+            </CardMedia>
             <CardContent>
-              <Typography variant="h2" fontWeight={"bold"}>
+              <Typography variant="h2" fontWeight={"bold"} sx={{ color: "hsl(229, 25%, 31%)" }}>
                 {computerScore}
               </Typography>
             </CardContent>
           </Card>
 
-          <Card sx={{ minWidth: "30%", textAlign: "center" }}>
-            <CardHeader title="Player Score">
-            </CardHeader>
+          {/* Player Score*/}
+          <Card sx={{ width: "30%", textAlign: "center" }}>
+            <CardMedia sx={{ paddingLeft: 2, paddingRight: 2, paddingTop: 2 }}>
+              <Typography variant="h5" fontWeight={"bold"} sx={{ color: "hsl(229, 64%, 46%)", letterSpacing: 2 }}  >
+                PLAYER
+              </Typography>
+            </CardMedia>
             <CardContent>
-              <Typography variant="h2" fontWeight={"bold"}>
+              <Typography variant="h2" fontWeight={"bold"} sx={{ color: "hsl(229, 25%, 31%)" }}>
                 {playerScore}
               </Typography>
             </CardContent>
