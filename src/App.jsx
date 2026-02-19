@@ -1,4 +1,4 @@
-import { Stack, IconButton, Box, CssBaseline } from "@mui/material";
+import { Stack, IconButton, Box, CssBaseline, Button } from "@mui/material";
 
 import { useState } from "react";
 
@@ -77,51 +77,50 @@ function App() {
   return (
     <>
       <CssBaseline />
-      <Stack width={"100%"} alignContent={"center"} justifyContent={"center"} alignItems={"center"} sx={{
+
+      <Stack py={5} gap={10} height={"100vh"} width={"100%"} alignItems={"center"} sx={{
         background: "radial-gradient(at top, hsl(214, 47%, 23%), hsl(237, 48%, 15%))"
       }}>
+
         <Header />
+
         <Stack justifyContent={"center"} alignItems={"center"} width={"80%"} >
-          <h1>Player Score: {playerScore}</h1>
-          <h1>Computer Score: {computerScore}</h1>
-          <Stack width="80%" justifyContent={"center"} alignItems={"center"}>
-            <img src="/bg-triangle.svg" alt="" />
-          </Stack>
 
+          <Box gap={20} width={"75%"} height="300px" sx={{
+            background: "red", background: "url(/bg-triangle.svg) no-repeat center", display: "flex",
+            flexDirection: "column",
+            alignItems: "center"
 
-          <Stack direction={"row"}>
-            <IconButton onClick={() => handleChoice("rock")}
-              sx={{
-                borderRadius: "50%",
-                border: "5px solid green"
-              }}
-            >
-              <img src="icon-rock.svg" alt="" />
-            </IconButton>
+          }}>
+            <Box width={"100%"} sx={{ display: "flex", alignItems: 'center', justifyContent: "center" }} gap={20}>
+              <Box>
+                <Button>
+                  <img src="/icon-paper.svg" alt="" />
+                </Button>
+              </Box>
 
-            <IconButton onClick={() => handleChoice("paper")}
-              sx={{
-                borderRadius: "50%",
-                border: "5px solid red"
-              }}
-            >
-              <img src="icon-paper.svg" />
-            </IconButton>
+              <Box>
+                <Button>
+                  <img src="/icon-scissors.svg" alt="" />
+                </Button>
+              </Box>
 
-            <IconButton onClick={() => handleChoice("scissors")}
-              sx={{
-                borderRadius: "50%",
-                border: "5px solid yellow"
-              }}
-            >
-              <img src="icon-scissors.svg" />
-            </IconButton>
-          </Stack>
+            </Box>
+            {/* Box principal que armazena o triangulo e os icones */}
+            <Button>
+              <img src="/icon-rock.svg" alt="" />
+            </Button>
 
-          <Rules />
-          <ResetScore />
+            <Box>
+            </Box>
+          </Box>
+
         </Stack>
+
+        <Rules />
+        <ResetScore />
       </Stack>
+
     </>
   )
 }
