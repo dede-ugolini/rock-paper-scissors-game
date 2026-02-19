@@ -1,8 +1,10 @@
-import { Stack, IconButton, Box } from "@mui/material";
+import { Stack, IconButton, Box, CssBaseline } from "@mui/material";
 
 import { useState } from "react";
+
 import ResetScore from "./ResetScore";
 import Rules from "./Rules";
+import Header from "./Header"
 
 let playerScore = localStorage.getItem("playerScore");
 let computerScore = localStorage.getItem("computerScore")
@@ -70,14 +72,16 @@ function App() {
     else if (playerChoice === "rock" && computerChoice === "scissors") {
       playerWins();
     }
-
-
   }
 
   return (
     <>
-      <Stack width={"100%"} alignContent={"center"} justifyContent={"center"} alignItems={"center"}>
-        <Stack justifyContent={"center"} alignItems={"center"} width={"80%"}>
+      <CssBaseline />
+      <Stack width={"100%"} alignContent={"center"} justifyContent={"center"} alignItems={"center"} sx={{
+        background: "radial-gradient(at top, hsl(214, 47%, 23%), hsl(237, 48%, 15%))"
+      }}>
+        <Header />
+        <Stack justifyContent={"center"} alignItems={"center"} width={"80%"} >
           <h1>Player Score: {playerScore}</h1>
           <h1>Computer Score: {computerScore}</h1>
           <Stack width="80%" justifyContent={"center"} alignItems={"center"}>
