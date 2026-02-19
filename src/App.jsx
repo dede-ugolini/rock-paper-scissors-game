@@ -89,7 +89,7 @@ function App() {
 
           {/* Box que armazena icones de pedra papel e tesoura e o triangulo*/}
           <Box gap={20} width={"75%"} height="300px" sx={{
-            background: "red", background: "url(/bg-triangle.svg) no-repeat center", display: "flex",
+            background: "url(/bg-triangle.svg) no-repeat center", display: "flex",
             flexDirection: "column",
             alignItems: "center",
           }}>
@@ -107,7 +107,7 @@ function App() {
               }}>
 
                 <Button variant="contained" sx={{ height: "130px", width: "130px", boxShadow: "none", background: "white", borderRadius: "50%", borderTop: "10px solid grey", ":hover": { boxShadow: "none" } }}>
-                  <img src="/icon-paper.svg" alt="" />
+                  <img src="/icon-paper.svg" style={{ height: "60%", width: "60%" }} />
                 </Button>
               </Box>
 
@@ -118,24 +118,26 @@ function App() {
                 borderBottom: "10px solid hsl(28, 76%, 44%)"
               }}>
                 <Button variant="contained" sx={{ height: "130px", width: "130px", boxShadow: "none", background: "white", borderRadius: "50%", borderTop: "10px solid grey", ":hover": { boxShadow: "none" } }}>
-                  <img src="/icon-scissors.svg" alt="" />
+                  <img src="/icon-scissors.svg" style={{ height: "70%", width: "70%" }} />
                 </Button>
               </Box>
 
             </Box  >
-            {/* Box principal que armazena o triangulo e os icones */}
 
-            <Box>
-              <Button >
-                <img src="/icon-rock.svg" alt="" />
-              </Button>
+            <Box sx={{ position: "relative", top: "-110px" }}>
+              <Box borderRadius={"50%"} height={"170px"} width={"190px"} sx={{
+                display: "flex",
+                justifyContent: "center", alignItems: "center", background: "hsl(349, 71%, 52%)",
+                borderBottom: "10px solid hsl(347, 75%, 35%)",
+              }}>
+                <Button variant="contained" sx={{ height: "130px", width: "130px", boxShadow: "none", background: "white", borderRadius: "50%", borderTop: "10px solid grey", ":hover": { boxShadow: "none" } }}>
+                  <img src="/icon-rock.svg" style={{ height: "60%", width: "60%" }} />
+                </Button>
+              </Box>
             </Box>
           </Box>
 
         </Stack>
-
-        <Rules />
-        <ResetScore />
       </Stack>
 
     </>
