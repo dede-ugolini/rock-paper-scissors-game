@@ -78,6 +78,7 @@ function App() {
     <>
       <CssBaseline />
 
+      {/* Container principal que engolba tudo*/}
       <Stack py={5} gap={10} height={"100vh"} width={"100%"} alignItems={"center"} sx={{
         background: "radial-gradient(at top, hsl(214, 47%, 23%), hsl(237, 48%, 15%))"
       }}>
@@ -86,32 +87,45 @@ function App() {
 
         <Stack justifyContent={"center"} alignItems={"center"} width={"80%"} >
 
+          {/* Box que armazena icones de pedra papel e tesoura e o triangulo*/}
           <Box gap={20} width={"75%"} height="300px" sx={{
             background: "red", background: "url(/bg-triangle.svg) no-repeat center", display: "flex",
             flexDirection: "column",
             alignItems: "center"
-
           }}>
+
             <Box width={"100%"} sx={{ display: "flex", alignItems: 'center', justifyContent: "center" }} gap={20}>
-              <Box>
-                <Button>
+
+              {/* Box que armeza o botão de papel*/}
+              <Box borderRadius={"50%"} height={"170px"} width={"170px"} sx={{
+                display: "flex",
+                justifyContent: "center", alignItems: "center", background: "hsl(230, 89%, 62%)",
+                borderBottom: "10px solid hsl(229, 64%, 46%)"
+              }}>
+
+                <Button variant="contained" sx={{ height: "130px", width: "130px", boxShadow: "none", background: "white", borderRadius: "50%", borderTop: "10px solid grey", ":hover": { boxShadow: "none" } }}>
                   <img src="/icon-paper.svg" alt="" />
                 </Button>
               </Box>
 
-              <Box>
-                <Button>
+              {/* Box que armazena botão de tesoura*/}
+              <Box borderRadius={"50%"} height={"170px"} width={"170px"} sx={{
+                display: "flex",
+                justifyContent: "center", alignItems: "center", background: "hsl(39, 89%, 49%)",
+                borderBottom: "10px solid hsl(28, 76%, 44%)"
+              }}>
+                <Button variant="contained" sx={{ height: "130px", width: "130px", boxShadow: "none", background: "white", borderRadius: "50%", borderTop: "10px solid grey", ":hover": { boxShadow: "none" } }}>
                   <img src="/icon-scissors.svg" alt="" />
                 </Button>
               </Box>
 
-            </Box>
+            </Box  >
             {/* Box principal que armazena o triangulo e os icones */}
-            <Button>
-              <img src="/icon-rock.svg" alt="" />
-            </Button>
 
             <Box>
+              <Button >
+                <img src="/icon-rock.svg" alt="" />
+              </Button>
             </Box>
           </Box>
 
