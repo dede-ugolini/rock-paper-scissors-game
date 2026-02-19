@@ -91,10 +91,13 @@ function App() {
           <Box gap={20} width={"75%"} height="300px" sx={{
             background: "red", background: "url(/bg-triangle.svg) no-repeat center", display: "flex",
             flexDirection: "column",
-            alignItems: "center"
+            alignItems: "center",
           }}>
 
-            <Box width={"100%"} sx={{ display: "flex", alignItems: 'center', justifyContent: "center" }} gap={20}>
+            <Box width={"100%"} sx={{
+              display: "flex", alignItems: 'center', justifyContent: "center",
+              position: "relative", top: "-40px"
+            }} gap={20}>
 
               {/* Box que armeza o botão de papel*/}
               <Box borderRadius={"50%"} height={"170px"} width={"170px"} sx={{
