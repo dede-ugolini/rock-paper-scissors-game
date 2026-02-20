@@ -6,17 +6,21 @@ import ResetScore from "./ResetScore";
 import Rules from "./Rules";
 import Header from "./Header"
 import { lightTheme } from "./theme/theme";
+import Footer from "./Footer";
+import Winner from "./Winner";
 
-let playerScore = localStorage.getItem("playerScore");
-let computerScore = localStorage.getItem("computerScore")
+let scorePlayer = localStorage.getItem("playerScore");
+let scoreComputer = localStorage.getItem("computerScore")
 
 // Caso seja a primeira vez utilizando
-if (playerScore === null) { localStorage.setItem("playerScore", 0) }
-if (computerScore === null) { localStorage.setItem("computerScore", 0) }
+if (scorePlayer === null) { localStorage.setItem("playerScore", 0) }
+if (scoreComputer === null) { localStorage.setItem("computerScore", 0) }
 
 function App() {
 
   const [playerChoice, setPlayerChoice] = useState("");
+  const [playerScore, setPlayerScore] = useState(parseInt(scorePlayer));
+  const [computerScore, setComputerScore] = useState(parseInt(scoreComputer));
 
   const choices = ["rock", "paper", "scissors"];
 
@@ -27,17 +31,21 @@ function App() {
   }
 
   const playerWins = () => {
-    let currentScore = (parseInt(localStorage.getItem("playerScore"))) + 1;
-    localStorage.setItem("playerScore", currentScore);
+    console.log("Player wins");
+    setPlayerScore(playerScore + 1);
+    localStorage.setItem("playerScore", playerScore);
+    displayResults();
   }
 
   const computerWins = () => {
-    let currentScore = (parseInt(localStorage.getItem("computerScore")) + 1);
-    localStorage.setItem("computerScore", currentScore);
+    console.log("Computer wins");
+    setComputerScore(computerScore + 1);
+    localStorage.setItem("computerScore", playerScore + 1);
   }
 
   const draw = () => {
     console.log("TODO draw");
+    alert("Empate");
   }
 
   const verify = () => {
@@ -87,7 +95,7 @@ function App() {
 
           <Stack py={5} gap={10} width={"100%"} alignItems={"center"} >
 
-            <Header />
+            <Header playerScore={playerScore} computerScore={computerScore} />
 
             <Stack justifyContent={"center"} alignItems={"center"} width={"80%"} >
 

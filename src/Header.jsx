@@ -1,9 +1,6 @@
 import { Card, CardContent, CardMedia, Stack, Typography } from "@mui/material";
 
-export default function Header() {
-
-  let playerScore = localStorage.getItem("playerScore");
-  let computerScore = localStorage.getItem("computerScore");
+export default function Header({ playerScore, computerScore }) {
 
   return (
     <>
@@ -22,7 +19,7 @@ export default function Header() {
             </CardMedia>
             <CardContent>
               <Typography variant="h2" fontWeight={"bold"} sx={{ color: "hsl(229, 25%, 31%)" }}>
-                {computerScore}
+                {parseInt(computerScore)}
               </Typography>
             </CardContent>
           </Card>
@@ -36,7 +33,7 @@ export default function Header() {
             </CardMedia>
             <CardContent>
               <Typography variant="h2" fontWeight={"bold"} sx={{ color: "hsl(229, 25%, 31%)" }}>
-                {playerScore}
+                {parseInt(playerScore)}
               </Typography>
             </CardContent>
           </Card>
