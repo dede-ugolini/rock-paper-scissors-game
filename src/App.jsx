@@ -110,19 +110,19 @@ function App() {
 
             <Stack justifyContent={"center"} alignItems={"center"} width={"80%"} >
 
-              <Fade in={!checked}>
+              <Collapse in={!checked}>
                 <Box>
                   <Buttons handleChoice={handleChoice} />
                 </Box>
-              </Fade>
+              </Collapse>
 
             </Stack>
 
-            <Fade in={checked}>
+            <Collapse in={checked}>
               <Box>
                 <Winner handleCheck={handleCheck} handleChoice={handleChoice} />
               </Box>
-            </Fade>
+            </Collapse>
 
           </Stack>
 
