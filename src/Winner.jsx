@@ -1,33 +1,26 @@
 import { Button, Box, Stack } from "@mui/material"
 
 const choices = [
-  { name: "rock", icon: "/icon-rock.svg" },
-  { name: "paper", icon: "/icon-paper.svg" },
-  { name: "scissors", icon: "/icon-scissors.svg" },
+  { name: "rock", icon: "/icon-rock.svg", background: "hsl(349, 71%, 52%)", borderColor: "hsl(347, 75%, 35%)" },
+  { name: "paper", icon: "/icon-paper.svg", background: "hsl(230, 89%, 62%)", borderColor: "hsl(229, 64%, 46%)" },
+  { name: "scissors", icon: "/icon-scissors.svg", background: "hsl(39, 89%, 49%)", borderColor: "hsl(28, 76%, 44%)" },
 ]
 
 export default function Winner({ handleCheck, playerChoice, computerChoice, status }) {
 
-  const handlePlayerIcon = () => {
-    const choice = choices.find(index => index.name === playerChoice);
-    return choice ? choice.icon : undefined;
-  }
-
-  const handleComputerIcon = () => {
-    const choice = choices.find(index => index.name === computerChoice);
-    return choice ? choice.icon : undefined;
-  }
-
-  const playerIcon = handlePlayerIcon()
-  const computerIcon = handleComputerIcon();
+  const player = choices.find(item => item.name === playerChoice);
+  const computer = choices.find(item => item.name === computerChoice);
 
   return (
     <>
       <Stack direction={"row"} spacing={2}>
+        {/* Botão do player*/}
         <Box borderRadius={"50%"} height={"170px"} width={"170px"} sx={{
           display: "flex",
-          justifyContent: "center", alignItems: "center", background: "hsl(230, 89%, 62%)",
-          borderBottom: "10px solid hsl(229, 64%, 46%)"
+          justifyContent: "center", alignItems: "center",
+          background: player?.background,
+          borderBottom: "10px solid",
+          borderColor: player?.borderColor,
         }}>
 
           <Button variant="contained" sx={{
@@ -36,7 +29,9 @@ export default function Winner({ handleCheck, playerChoice, computerChoice, stat
             ":hover": { boxShadow: "none" }
           }}
           >
-            <img src={playerIcon} style={{ height: "60%", width: "60%" }} />
+            {player && (
+              <img src={player.icon} style={{ height: "60%", width: "60%" }} />
+            )}
           </Button>
         </Box>
 
@@ -44,10 +39,13 @@ export default function Winner({ handleCheck, playerChoice, computerChoice, stat
           You lose
         </Button>
 
+        {/* Botão do computador*/}
         <Box borderRadius={"50%"} height={"170px"} width={"170px"} sx={{
           display: "flex",
-          justifyContent: "center", alignItems: "center", background: "hsl(230, 89%, 62%)",
-          borderBottom: "10px solid hsl(229, 64%, 46%)"
+          justifyContent: "center", alignItems: "center",
+          background: computer?.background,
+          borderBottom: "10px solid",
+          borderColor: computer?.borderColor,
         }}>
 
           <Button variant="contained" sx={{
@@ -56,11 +54,12 @@ export default function Winner({ handleCheck, playerChoice, computerChoice, stat
             ":hover": { boxShadow: "none" }
           }}
           >
-            <img src={computerIcon} style={{ height: "60%", width: "60%" }} />
+            {computer && (
+              <img src={computer.icon} style={{ height: "60%", width: "60%" }} />
+            )}
           </Button>
         </Box>
       </Stack>
     </>
   )
 }
-
