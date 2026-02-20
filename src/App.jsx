@@ -23,6 +23,8 @@ function App() {
   const [playerScore, setPlayerScore] = useState(parseInt(scorePlayer));
   const [computerScore, setComputerScore] = useState(parseInt(scoreComputer));
 
+  const [checked, setChecked] = useState(false);
+
   const choices = ["rock", "paper", "scissors"];
 
   const handleChoice = (choice) => {
@@ -31,22 +33,30 @@ function App() {
     verify();
   }
 
+  const handleCheck = () => {
+    setTimeout(() => {
+      setChecked(!checked);
+    }, 500);
+  }
+
   const playerWins = () => {
     console.log("Player wins");
     setPlayerScore(playerScore + 1);
     localStorage.setItem("playerScore", playerScore);
-    displayResults();
+    handleCheck();
   }
 
   const computerWins = () => {
     console.log("Computer wins");
     setComputerScore(computerScore + 1);
     localStorage.setItem("computerScore", playerScore + 1);
+    handleCheck();
   }
 
   const draw = () => {
     console.log("TODO draw");
     alert("Empate");
+    handleCheck();
   }
 
   const verify = () => {
