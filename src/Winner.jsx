@@ -1,6 +1,26 @@
 import { Button, Box, Stack } from "@mui/material"
 
-export default function Winner({ handleCheck, handleChoice }) {
+const choices = [
+  { name: "rock", icon: "/icon-rock.svg" },
+  { name: "paper", icon: "/icon-paper.svg" },
+  { name: "scissors", icon: "/icon-scissors.svg" },
+]
+
+export default function Winner({ handleCheck, playerChoice, computerChoice, status }) {
+
+  const handlePlayerIcon = () => {
+    const choice = choices.find(index => index.name === playerChoice);
+    return choice ? choice.icon : undefined;
+  }
+
+  const handleComputerIcon = () => {
+    const choice = choices.find(index => index.name === computerChoice);
+    return choice ? choice.icon : undefined;
+  }
+
+  const playerIcon = handlePlayerIcon()
+  const computerIcon = handleComputerIcon();
+
   return (
     <>
       <Stack direction={"row"} spacing={2}>
@@ -15,9 +35,8 @@ export default function Winner({ handleCheck, handleChoice }) {
             background: "white", borderRadius: "50%", borderTop: "10px solid grey",
             ":hover": { boxShadow: "none" }
           }}
-            onClick={() => handleChoice("paper")}
           >
-            <img src="/icon-paper.svg" style={{ height: "60%", width: "60%" }} />
+            <img src={playerIcon} style={{ height: "60%", width: "60%" }} />
           </Button>
         </Box>
 
@@ -36,9 +55,8 @@ export default function Winner({ handleCheck, handleChoice }) {
             background: "white", borderRadius: "50%", borderTop: "10px solid grey",
             ":hover": { boxShadow: "none" }
           }}
-            onClick={() => handleChoice("paper")}
           >
-            <img src="/icon-paper.svg" style={{ height: "60%", width: "60%" }} />
+            <img src={computerIcon} style={{ height: "60%", width: "60%" }} />
           </Button>
         </Box>
       </Stack>
