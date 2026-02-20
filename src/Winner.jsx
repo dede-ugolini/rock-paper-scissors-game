@@ -1,4 +1,4 @@
-import { Button, Box, Stack } from "@mui/material"
+import { Button, Box, Stack, Typography } from "@mui/material"
 
 const choices = [
   { name: "rock", icon: "/icon-rock.svg", background: "hsl(349, 71%, 52%)", borderColor: "hsl(347, 75%, 35%)" },
@@ -13,49 +13,55 @@ export default function Winner({ handleCheck, playerChoice, computerChoice, stat
 
   return (
     <>
-      <Stack direction={"row"} spacing={2}>
+      <Stack direction={"row"} spacing={5} width={"100%"} height={"100%"}>
         {/* Botão do player*/}
-        <Box borderRadius={"50%"} height={"170px"} width={"170px"} sx={{
+        <Box borderRadius={"50%"} height={"30vh"} width={"17vw"} sx={{
           display: "flex",
           justifyContent: "center", alignItems: "center",
           background: player?.background,
-          borderBottom: "10px solid",
+          borderBottom: "12px solid",
           borderColor: player?.borderColor,
         }}>
 
           <Button variant="contained" sx={{
-            height: "130px", width: "130px", boxShadow: "none",
+            height: "75%", width: "75%", boxShadow: "none",
             background: "white", borderRadius: "50%", borderTop: "10px solid grey",
             ":hover": { boxShadow: "none" }
           }}
           >
             {player && (
-              <img src={player.icon} style={{ height: "60%", width: "60%" }} />
+              <img src={player.icon} style={{ height: "55%", width: "55%" }} />
             )}
           </Button>
         </Box>
 
-        <Button onClick={handleCheck}>
-          You lose
-        </Button>
+        <Stack spacing={3} >
+          <Typography variant="h3" fontWeight={"bold"}>
+            YOU LOSE
+          </Typography>
+          <Button variant={"contained"} onClick={handleCheck}>
+            Play Again
+          </Button>
+
+        </Stack>
 
         {/* Botão do computador*/}
-        <Box borderRadius={"50%"} height={"170px"} width={"170px"} sx={{
+        <Box borderRadius={"50%"} height={"30vh"} width={"17vw"} sx={{
           display: "flex",
           justifyContent: "center", alignItems: "center",
           background: computer?.background,
-          borderBottom: "10px solid",
+          borderBottom: "12px solid",
           borderColor: computer?.borderColor,
         }}>
 
           <Button variant="contained" sx={{
-            height: "130px", width: "130px", boxShadow: "none",
+            height: "75%", width: "75%", boxShadow: "none",
             background: "white", borderRadius: "50%", borderTop: "10px solid grey",
             ":hover": { boxShadow: "none" }
           }}
           >
             {computer && (
-              <img src={computer.icon} style={{ height: "60%", width: "60%" }} />
+              <img src={computer.icon} style={{ height: "55%", width: "55%" }} />
             )}
           </Button>
         </Box>
