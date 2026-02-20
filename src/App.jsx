@@ -118,7 +118,13 @@ function App() {
                     borderBottom: "10px solid hsl(229, 64%, 46%)"
                   }}>
 
-                    <Button variant="contained" sx={{ height: "130px", width: "130px", boxShadow: "none", background: "white", borderRadius: "50%", borderTop: "10px solid grey", ":hover": { boxShadow: "none" } }}>
+                    <Button variant="contained" sx={{
+                      height: "130px", width: "130px", boxShadow: "none",
+                      background: "white", borderRadius: "50%", borderTop: "10px solid grey",
+                      ":hover": { boxShadow: "none" }
+                    }}
+                      onClick={() => handleChoice("paper")}
+                    >
                       <img src="/icon-paper.svg" style={{ height: "60%", width: "60%" }} />
                     </Button>
                   </Box>
@@ -129,7 +135,13 @@ function App() {
                     justifyContent: "center", alignItems: "center", background: "hsl(39, 89%, 49%)",
                     borderBottom: "10px solid hsl(28, 76%, 44%)"
                   }}>
-                    <Button variant="contained" sx={{ height: "130px", width: "130px", boxShadow: "none", background: "white", borderRadius: "50%", borderTop: "10px solid grey", ":hover": { boxShadow: "none" } }}>
+                    <Button variant="contained" sx={{
+                      height: "130px", width: "130px", boxShadow: "none",
+                      background: "white", borderRadius: "50%", borderTop: "10px solid grey",
+                      ":hover": { boxShadow: "none" }
+                    }}
+                      onClick={() => handleChoice("scissors")}
+                    >
                       <img src="/icon-scissors.svg" style={{ height: "70%", width: "70%" }} />
                     </Button>
                   </Box>
@@ -142,7 +154,13 @@ function App() {
                     justifyContent: "center", alignItems: "center", background: "hsl(349, 71%, 52%)",
                     borderBottom: "10px solid hsl(347, 75%, 35%)",
                   }}>
-                    <Button variant="contained" sx={{ height: "130px", width: "130px", boxShadow: "none", background: "white", borderRadius: "50%", borderTop: "10px solid grey", ":hover": { boxShadow: "none" } }}>
+                    <Button variant="contained" sx={{
+                      height: "130px", width: "130px", boxShadow: "none",
+                      background: "white", borderRadius: "50%", borderTop: "10px solid grey",
+                      ":hover": { boxShadow: "none" }
+                    }}
+                      onClick={() => handleChoice("rock")}
+                    >
                       <img src="/icon-rock.svg" style={{ height: "60%", width: "60%" }} />
                     </Button>
                   </Box>
@@ -155,6 +173,10 @@ function App() {
           <Stack direction={"row-reverse"} spacing={3} px={5} alignItems={"end"}>
             <ResetScore />
             <Rules />
+          </Stack>
+
+          <Stack py={5} alignItems={"center"}>
+            <Footer />
           </Stack>
         </Stack>
       </ThemeProvider>
