@@ -13,7 +13,7 @@ export default function ResetScore() {
 
   return (
     <>
-      <Button onClick={() => setOpen(true)}>
+      <Button variant={"contained"} onClick={() => setOpen(true)}>
         Resetar placar
       </Button>
       <Dialog
