@@ -5,7 +5,7 @@ export default function Buttons({ handleChoice }) {
   return (
     <>
       {/* Box que armazena icones de pedra papel e tesoura e o triangulo*/}
-      <Box gap={20} width={"75%"} height="300px" sx={{
+      <Box gap={15} width={"100%"} height="300px" sx={{
         background: "url(/bg-triangle.svg) no-repeat center", display: "flex",
         flexDirection: "column",
         alignItems: "center",
@@ -13,8 +13,8 @@ export default function Buttons({ handleChoice }) {
 
         <Box width={"100%"} sx={{
           display: "flex", alignItems: 'center', justifyContent: "center",
-          position: "relative", top: "-40px"
-        }} gap={20}>
+          position: "relative", top: "-5vh"
+        }} gap={15}>
 
           {/* Box que armeza o botão de papel*/}
           <Box borderRadius={"50%"} height={"170px"} width={"170px"} sx={{
@@ -23,10 +23,10 @@ export default function Buttons({ handleChoice }) {
             borderBottom: "10px solid hsl(229, 64%, 46%)"
           }}>
 
-            <Button variant="contained" sx={{
+            <Button variant="contaide" sx={{
               height: "130px", width: "130px", boxShadow: "none",
-              background: "white", borderRadius: "50%", borderTop: "10px solid grey",
-              ":hover": { boxShadow: "none" }
+              background: "hsl(205 12% 88%)", borderRadius: "50%", borderTop: "10px solid grey",
+              ":hover": { boxShadow: "none", background: "white" }
             }}
               onClick={() => handleChoice("paper")}
             >
@@ -42,8 +42,8 @@ export default function Buttons({ handleChoice }) {
           }}>
             <Button variant="contained" sx={{
               height: "130px", width: "130px", boxShadow: "none",
-              background: "white", borderRadius: "50%", borderTop: "10px solid grey",
-              ":hover": { boxShadow: "none" }
+              background: "hsl(205 12% 88%)", borderRadius: "50%", borderTop: "10px solid grey",
+              ":hover": { boxShadow: "none", background: "white" }
             }}
               onClick={() => handleChoice("scissors")}
             >
@@ -55,16 +55,17 @@ export default function Buttons({ handleChoice }) {
 
         {/* Box que armazena botão de pedra */}
         <Box sx={{ position: "relative", top: "-110px" }}>
-          <Box borderRadius={"50%"} height={"170px"} width={"190px"} sx={{
+          <Box borderRadius={"50%"} height={"170px"} width={"170px"} sx={{
             display: "flex",
             justifyContent: "center", alignItems: "center", background: "hsl(349, 71%, 52%)",
             borderBottom: "10px solid hsl(347, 75%, 35%)",
           }}>
-            <Button variant="contained" sx={{
-              height: "130px", width: "130px", boxShadow: "none",
-              background: "white", borderRadius: "50%", borderTop: "10px solid grey",
-              ":hover": { boxShadow: "none" }
-            }}
+            <Button
+              sx={{
+                height: "130px", width: "130px", boxShadow: "none",
+                background: "hsl(205 12% 88%)", borderRadius: "50%", borderTop: "10px solid grey",
+                ":hover": { boxShadow: "none", background: "white" }
+              }}
               onClick={() => handleChoice("rock")}
             >
               <img src="/icon-rock.svg" style={{ height: "60%", width: "60%" }} />

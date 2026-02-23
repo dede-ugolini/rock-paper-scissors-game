@@ -10,7 +10,9 @@ export default function Rules(props) {
       <Button variant={"contained"} onClick={() => setOpen(true)}
         sx={{ cursor: "help" }}
       >
-        Regras
+        <Typography sx={{ letterSpacing: 1 }}>
+          Regras
+        </Typography>
       </Button>
       <Dialog
         open={open}
