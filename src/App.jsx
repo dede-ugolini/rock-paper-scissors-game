@@ -30,7 +30,6 @@ function App() {
   const choices = ["rock", "paper", "scissors"];
 
   const [winner, setWinner] = useState({ player: false, computer: false, draw: false });
-
   const handleCheck = () => {
     setTimeout(() => {
       setChecked(!checked);
@@ -126,7 +125,7 @@ function App() {
           </Stack>
 
           {/* Botões de regras e resetar placar */}
-          <Stack direction={"row-reverse"} spacing={3} px={5} alignItems={"end"}>
+          <Stack direction={{ xs: "column-reverse", md: "row-reverse" }} spacing={3} px={5} alignItems={{ xs: "center", md: "end" }}>
             <ResetScore />
             <Rules />
           </Stack>

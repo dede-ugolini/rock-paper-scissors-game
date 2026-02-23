@@ -1,4 +1,4 @@
-import { Button, Dialog, Typography } from "@mui/material";
+import { Button, Dialog, DialogContentText, DialogTitle, Stack, Typography } from "@mui/material";
 import { useState } from "react";
 
 export default function Rules(props) {
@@ -7,18 +7,29 @@ export default function Rules(props) {
 
   return (
     <>
-      <Button onClick={() => setOpen(true)}>
+      <Button variant={"contained"} onClick={() => setOpen(true)}
+        sx={{ cursor: "help" }}
+      >
         Regras
       </Button>
       <Dialog
         open={open}
         onClose={() => setOpen(false)}
-        sx={{ padding: 5 }}
       >
-        <Typography variant="h5">
-          Rules
-        </Typography>
-        <img src="/image-rules.svg" />
+        <DialogTitle>
+          <Stack direction={"row"} justifyContent={"space-between"}>
+            <Typography variant="h5">
+              Rules
+            </Typography>
+            <Button size={"small"} variant="contained" sx={{ position: "relative" }}>
+              x
+            </Button>
+          </Stack>
+
+        </DialogTitle>
+        <DialogContentText>
+          <img src="/image-rules.svg" />
+        </DialogContentText>
       </Dialog>
     </>
   )

@@ -37,7 +37,7 @@ export default function Winner({ handleCheck, playerChoice, computerChoice, winn
 
         <Stack spacing={3} >
           <Typography variant="h3" fontWeight={"bold"} sx={{ color: "#FFF" }}>
-            {winner.draw ? "Draw" : winner.player ? "You win" : "You lose"}
+            {(winner.draw ? "Draw" : winner.player ? "You win" : "You lose").toUpperCase()}
           </Typography>
           <Button variant={"contained"} onClick={handleCheck}>
             Play Again
@@ -46,7 +46,7 @@ export default function Winner({ handleCheck, playerChoice, computerChoice, winn
         </Stack>
 
         {/* Botão do computador*/}
-        <Box borderRadius={"50%"} height={"30vh"} width={"17vw"} sx={{
+        <Box borderRadius={"50%"} height={{ lg: "30vh", md: "24vh", sm: "20vh", xs: "10vh" }} width={{ lg: "17vw", md: "16vw", sm: "14vw", xs: "10vw" }} sx={{
           display: "flex",
           justifyContent: "center", alignItems: "center",
           background: computer?.background,
