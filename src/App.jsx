@@ -1,14 +1,14 @@
-import { Stack, IconButton, Box, CssBaseline, Button, ThemeProvider, Paper, Collapse, Fade } from "@mui/material";
+import { Box, Collapse, CssBaseline, Stack, ThemeProvider } from "@mui/material";
 
 import { useState } from "react";
 
+import Buttons from "./Buttons";
+import Footer from "./Footer";
+import Header from "./Header";
 import ResetScore from "./ResetScore";
 import Rules from "./Rules";
-import Header from "./Header"
 import { lightTheme } from "./theme/theme";
-import Footer from "./Footer";
 import Winner from "./Winner";
-import Buttons from "./Buttons";
 
 let scorePlayer = localStorage.getItem("playerScore");
 let scoreComputer = localStorage.getItem("computerScore")
@@ -19,7 +19,9 @@ if (scoreComputer === null) { localStorage.setItem("computerScore", 0) }
 
 function App() {
 
+  const [statecomputerChoice, setComputerChoice] = useState("");
   const [playerChoice, setPlayerChoice] = useState("");
+
   const [playerScore, setPlayerScore] = useState(parseInt(scorePlayer));
   const [computerScore, setComputerScore] = useState(parseInt(scoreComputer));
 
@@ -27,11 +29,7 @@ function App() {
 
   const choices = ["rock", "paper", "scissors"];
 
-  const handleChoice = (choice) => {
-    setPlayerChoice(choice);
-    console.log("Player choice: " + choice);
-    verify();
-  }
+  const [winner, setWinner] = useState({ player: false, computer: false, draw: false });
 
   const handleCheck = () => {
     setTimeout(() => {
@@ -40,57 +38,58 @@ function App() {
   }
 
   const playerWins = () => {
-    console.log("Player wins");
+    setWinner({
+      player: true,
+      computer: false,
+      draw: false,
+    });
     setPlayerScore(playerScore + 1);
     localStorage.setItem("playerScore", playerScore);
     handleCheck();
   }
 
   const computerWins = () => {
-    console.log("Computer wins");
+    setWinner({
+      player: false,
+      computer: true,
+      draw: false,
+    });
     setComputerScore(computerScore + 1);
     localStorage.setItem("computerScore", playerScore + 1);
     handleCheck();
   }
 
   const draw = () => {
-    console.log("TODO draw");
-    alert("Empate");
+    setWinner({
+      player: false,
+      computer: false,
+      draw: true,
+    });
     handleCheck();
   }
 
-  const verify = () => {
+  const verify = (choice) => {
 
     const randomChoice = () => Math.floor(Math.random() * choices.length);
     const computerChoice = choices[randomChoice()];
-    console.log("Computer choice: " + computerChoice);
+    setComputerChoice(computerChoice)
 
-    if (playerChoice === "scissors" && computerChoice === "rock") {
-      computerWins();
+    setPlayerChoice(choice);
+
+    if (choice === computerChoice) {
+      draw();
     }
-    else if (playerChoice === "scissors" && computerChoice === "paper") {
+    else if (choice == "scissors" && computerChoice === "paper") {
       playerWins();
     }
-    else if (playerChoice === "scissors" && computerChoice === "scissors") {
-      draw();
-    }
-    else if (playerChoice === "paper" && computerChoice === "rock") {
-      computerWins();
-    }
-    else if (playerChoice === "paper" && computerChoice === "paper") {
-      draw();
-    }
-    else if (playerChoice === "paper" && computerChoice === "scissors") {
-      computerWins();
-    }
-    else if (playerChoice === "rock" && computerChoice === "rock") {
-      draw();
-    }
-    else if (playerChoice === "rock" && computerChoice === "paper") {
-      computerWins();
-    }
-    else if (playerChoice === "rock" && computerChoice === "scissors") {
+    else if (choice === "rock" && computerChoice === "scissors") {
       playerWins();
+    }
+    else if (choice === "paper" && computerChoice === "rock") {
+      playerWins();
+    }
+    else {
+      computerWins();
     }
   }
 
@@ -112,7 +111,7 @@ function App() {
 
               <Collapse in={!checked}>
                 <Box>
-                  <Buttons handleChoice={handleChoice} />
+                  <Buttons handleChoice={verify} />
                 </Box>
               </Collapse>
 
@@ -120,7 +119,7 @@ function App() {
 
             <Collapse in={checked}>
               <Box>
-                <Winner handleCheck={handleCheck} handleChoice={handleChoice} />
+                <Winner handleCheck={handleCheck} playerChoice={playerChoice} computerChoice={statecomputerChoice} winner={winner} />
               </Box>
             </Collapse>
 

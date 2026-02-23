@@ -6,7 +6,7 @@ const choices = [
   { name: "scissors", icon: "/icon-scissors.svg", background: "hsl(39, 89%, 49%)", borderColor: "hsl(28, 76%, 44%)" },
 ]
 
-export default function Winner({ handleCheck, playerChoice, computerChoice, status }) {
+export default function Winner({ handleCheck, playerChoice, computerChoice, winner }) {
 
   const player = choices.find(item => item.name === playerChoice);
   const computer = choices.find(item => item.name === computerChoice);
@@ -15,7 +15,7 @@ export default function Winner({ handleCheck, playerChoice, computerChoice, stat
     <>
       <Stack direction={"row"} spacing={5} width={"100%"} height={"100%"}>
         {/* Botão do player*/}
-        <Box borderRadius={"50%"} height={"30vh"} width={"17vw"} sx={{
+        <Box borderRadius={"50%"} height={{ lg: "30vh", md: "24vh", sm: "20vh", xs: "10vh" }} width={{ lg: "17vw", md: "16vw", sm: "14vw", xs: "10vw" }} sx={{
           display: "flex",
           justifyContent: "center", alignItems: "center",
           background: player?.background,
@@ -36,8 +36,8 @@ export default function Winner({ handleCheck, playerChoice, computerChoice, stat
         </Box>
 
         <Stack spacing={3} >
-          <Typography variant="h3" fontWeight={"bold"}>
-            YOU LOSE
+          <Typography variant="h3" fontWeight={"bold"} sx={{ color: "#FFF" }}>
+            {winner.draw ? "Draw" : winner.player ? "You win" : "You lose"}
           </Typography>
           <Button variant={"contained"} onClick={handleCheck}>
             Play Again
