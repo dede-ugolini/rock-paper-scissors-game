@@ -27,6 +27,14 @@ export const lightTheme = createTheme({
         fontSize: "5rem",
       },
     },
+    h3: {
+      [theme.breakpoints.up('xs')]: {
+        fontSize: "0.6rem",
+      },
+      [theme.breakpoints.up('sm')]: {
+        fontSize: "2.5rem",
+      },
+    },
     h5: {
       [theme.breakpoints.up('xs')]: {
         fontSize: "0.6rem",
