@@ -13,58 +13,72 @@ export default function Winner({ handleCheck, playerChoice, computerChoice, winn
 
   return (
     <>
-      <Stack direction={"row"} spacing={5} width={"100%"} height={"100%"}>
+      <Stack direction={{ xs: "column", md: "row" }} spacing={5} width={"100%"} height={"100%"}>
         {/* Botão do player*/}
-        <Box borderRadius={"50%"} height={{ lg: "30vh", md: "24vh", sm: "20vh", xs: "10vh" }} width={{ lg: "17vw", md: "16vw", sm: "14vw", xs: "10vw" }} sx={{
-          display: "flex",
-          justifyContent: "center", alignItems: "center",
-          background: player?.background,
-          borderBottom: "12px solid",
-          borderColor: player?.borderColor,
-        }}>
+        <Stack direction={"column"} gap={2} alignItems={"center"}>
 
-          <Button variant="contained" sx={{
-            height: "75%", width: "75%", boxShadow: "none",
-            background: "white", borderRadius: "50%", borderTop: "10px solid grey",
-            ":hover": { boxShadow: "none" }
-          }}
-          >
-            {player && (
-              <img src={player.icon} style={{ height: "55%", width: "55%" }} />
-            )}
-          </Button>
-        </Box>
+          <Typography variant="h5" fontWeight={"bold"} sx={{ color: "white" }}>YOU PICKED</Typography>
 
-        <Stack spacing={3} >
+          <Box borderRadius={"50%"} height={{ lg: "30vh", xs: "130px" }} width={{ lg: "17vw", xs: "130px" }} sx={{
+            display: "flex",
+            justifyContent: "center", alignItems: "center",
+            background: player?.background,
+            borderBottom: "12px solid",
+            borderColor: player?.borderColor,
+          }}>
+
+            <Button variant="contained" sx={{
+              height: "75%", width: "75%", boxShadow: "none",
+              background: "white", borderRadius: "50%", borderTop: "10px solid grey",
+              ":hover": { boxShadow: "none" }
+            }}
+            >
+              {player && (
+                <img src={player.icon} style={{ height: "55%", width: "55%" }} />
+              )}
+            </Button>
+          </Box>
+        </Stack>
+
+
+        <Stack spacing={3} justifyContent={"center"} alignItems={"center"}>
           <Typography variant="h3" fontWeight={"bold"} sx={{ color: "#FFF" }}>
             {(winner.draw ? "Draw" : winner.player ? "You win" : "You lose").toUpperCase()}
           </Typography>
           <Button variant={"contained"} onClick={handleCheck}>
-            Play Again
+            <Typography variant="h5">
+              Play again
+            </Typography>
           </Button>
 
         </Stack>
 
         {/* Botão do computador*/}
-        <Box borderRadius={"50%"} height={{ lg: "30vh", md: "24vh", sm: "20vh", xs: "10vh" }} width={{ lg: "17vw", md: "16vw", sm: "14vw", xs: "10vw" }} sx={{
-          display: "flex",
-          justifyContent: "center", alignItems: "center",
-          background: computer?.background,
-          borderBottom: "12px solid",
-          borderColor: computer?.borderColor,
-        }}>
+        <Stack direction={"column"} alignItems={"center"} gap={2}>
+          <Typography variant="h5" fontWeight={"bold"} sx={{ color: "white" }}>
+            THE HOUSE PICKED
+          </Typography>
+          <Box borderRadius={"50%"} height={{ lg: "30vh", xs: "130px" }} width={{ lg: "17vw", xs: "130px" }} sx={{
+            display: "flex",
+            justifyContent: "center", alignItems: "center",
+            background: computer?.background,
+            borderBottom: "12px solid",
+            borderColor: computer?.borderColor,
+          }}>
 
-          <Button variant="contained" sx={{
-            height: "75%", width: "75%", boxShadow: "none",
-            background: "white", borderRadius: "50%", borderTop: "10px solid grey",
-            ":hover": { boxShadow: "none" }
-          }}
-          >
-            {computer && (
-              <img src={computer.icon} style={{ height: "55%", width: "55%" }} />
-            )}
-          </Button>
-        </Box>
+            <Button variant="contained" sx={{
+              height: "75%", width: "75%", boxShadow: "none",
+              background: "white", borderRadius: "50%", borderTop: "10px solid grey",
+              ":hover": { boxShadow: "none" }
+            }}
+            >
+              {computer && (
+                <img src={computer.icon} style={{ height: "55%", width: "55%" }} />
+              )}
+            </Button>
+          </Box>
+        </Stack>
+
       </Stack>
     </>
   )
