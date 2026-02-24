@@ -5,7 +5,7 @@ export default function Buttons({ handleChoice }) {
   return (
     <>
       {/* Box que armazena icones de pedra papel e tesoura e o triangulo*/}
-      <Box gap={15} width={"100%"} height="300px" sx={{
+      <Box gap={17} width={"100%"} height="280px" sx={{
         background: "url(/bg-triangle.svg) no-repeat center", display: "flex",
         flexDirection: "column",
         alignItems: "center",
@@ -13,18 +13,18 @@ export default function Buttons({ handleChoice }) {
 
         <Box width={"100%"} sx={{
           display: "flex", alignItems: 'center', justifyContent: "center",
-          position: "relative", top: "-5vh"
-        }} gap={15}>
+          position: "relative", top: { xs: "-3vh", md: "-5vh" }
+        }} gap={{ xs: 10, md: 15 }}>
 
           {/* Box que armeza o botão de papel*/}
-          <Box borderRadius={"50%"} height={"170px"} width={"170px"} sx={{
+          <Box borderRadius={"50%"} height={{ xs: "130px", md: "170px" }} width={{ xs: "130px", md: "170px" }} sx={{
             display: "flex",
             justifyContent: "center", alignItems: "center", background: "hsl(230, 89%, 62%)",
             borderBottom: "10px solid hsl(229, 64%, 46%)"
           }}>
 
             <Button variant="contaide" sx={{
-              height: "130px", width: "130px", boxShadow: "none",
+              height: { xs: "100px", md: "130px" }, width: { xs: "100px", md: "130px" }, boxShadow: "none",
               background: "hsl(205 12% 88%)", borderRadius: "50%", borderTop: "10px solid grey",
               ":hover": { boxShadow: "none", background: "white" }
             }}
@@ -35,13 +35,13 @@ export default function Buttons({ handleChoice }) {
           </Box>
 
           {/* Box que armazena botão de tesoura*/}
-          <Box borderRadius={"50%"} height={"170px"} width={"170px"} sx={{
+          <Box borderRadius={"50%"} height={{ xs: "130px", md: "170px" }} width={{ xs: "130px", md: "170px" }} sx={{
             display: "flex",
             justifyContent: "center", alignItems: "center", background: "hsl(39, 89%, 49%)",
             borderBottom: "10px solid hsl(28, 76%, 44%)"
           }}>
             <Button variant="contained" sx={{
-              height: "130px", width: "130px", boxShadow: "none",
+              height: { xs: "100px", md: "130px" }, width: { xs: "100px", md: "130px" }, boxShadow: "none",
               background: "hsl(205 12% 88%)", borderRadius: "50%", borderTop: "10px solid grey",
               ":hover": { boxShadow: "none", background: "white" }
             }}
@@ -55,14 +55,14 @@ export default function Buttons({ handleChoice }) {
 
         {/* Box que armazena botão de pedra */}
         <Box sx={{ position: "relative", top: "-110px" }}>
-          <Box borderRadius={"50%"} height={"170px"} width={"170px"} sx={{
+          <Box borderRadius={"50%"} height={{ xs: "130px", md: "170px" }} width={{ xs: "130px", md: "170px" }} sx={{
             display: "flex",
             justifyContent: "center", alignItems: "center", background: "hsl(349, 71%, 52%)",
             borderBottom: "10px solid hsl(347, 75%, 35%)",
           }}>
             <Button
               sx={{
-                height: "130px", width: "130px", boxShadow: "none",
+                height: { xs: "100px", md: "130px" }, width: { xs: "100px", md: "130px" }, boxShadow: "none",
                 background: "hsl(205 12% 88%)", borderRadius: "50%", borderTop: "10px solid grey",
                 ":hover": { boxShadow: "none", background: "white" }
               }}
